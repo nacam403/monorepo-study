@@ -1,0 +1,12 @@
+{
+  "name": "monorepo-study",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna clean --yes"
+  },
+  "devDependencies": {
+    "lerna": "^2.11.0"
+  }
+}
