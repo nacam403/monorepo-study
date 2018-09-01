@@ -1,0 +1,9 @@
+{
+  "name": "my-common",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "private": true,
+  "scripts": {
+    "build": "../../node_modules/.bin/babel src --out-dir dist"
+  }
+}
