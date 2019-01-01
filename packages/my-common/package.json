@@ -8,7 +8,7 @@
     "clean": "rm -rf dist",
     "build": "upbin npm-run-all clean build:*",
     "build:tsc": "upbin tsc",
-    "build:babel": "upbin babel src --extensions '.ts,.tsx' --out-dir dist --root-mode upward",
+    "build:babel": "upbin babel src --extensions '.ts,.tsx' --out-dir dist --root-mode upward --source-maps",
     "lint": "upbin eslint . --ext .ts,.tsx"
   },
   "devDependencies": {
