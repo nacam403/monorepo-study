@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "private": true,
+  "license": "MIT",
   "scripts": {
-    "build": "../../node_modules/.bin/babel src --out-dir dist"
+    "build": "upbin babel src --out-dir dist"
+  },
+  "devDependencies": {
+    "upbin": "^0.8.1"
   }
 }

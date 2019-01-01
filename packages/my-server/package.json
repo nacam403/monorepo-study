@@ -2,11 +2,15 @@
   "name": "my-server",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "start": "node dist/index.js",
-    "build": "../../node_modules/.bin/babel src --out-dir dist"
+    "build": "upbin babel src --out-dir dist"
   },
   "dependencies": {
     "my-common": "^1.0.0"
+  },
+  "devDependencies": {
+    "upbin": "^0.8.1"
   }
 }
