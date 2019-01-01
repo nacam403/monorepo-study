@@ -5,7 +5,11 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "build": "upbin babel --root-mode upward src --out-dir dist"
+    "clean": "rm -rf dist",
+    "build": "upbin npm-run-all clean build:*",
+    "build:tsc": "upbin tsc",
+    "build:babel": "upbin babel src --extensions '.ts,.tsx' --out-dir dist --root-mode upward",
+    "lint": "upbin eslint . --ext .ts,.tsx"
   },
   "devDependencies": {
     "upbin": "^0.8.1"

@@ -7,18 +7,21 @@
     "prepare": "npm-run-all bootstrap build",
     "bootstrap": "lerna bootstrap",
     "clean": "lerna clean --yes",
-    "build": "lerna run build"
+    "build": "lerna run build",
+    "lint": "lerna run lint"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
-    "babel-eslint": "^9.0.0",
+    "@babel/preset-typescript": "^7.1.0",
     "eslint": "^5.11.1",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-prettier": "^3.0.1",
     "lerna": "^2.11.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^1.15.3"
+    "prettier": "^1.15.3",
+    "typescript": "3.1.1",
+    "typescript-eslint-parser": "^21.0.2"
   }
 }

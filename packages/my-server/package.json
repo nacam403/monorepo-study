@@ -5,7 +5,11 @@
   "license": "MIT",
   "scripts": {
     "start": "node dist/index.js",
-    "build": "upbin babel --root-mode upward src --out-dir dist"
+    "clean": "rm -rf dist",
+    "build": "upbin npm-run-all clean build:*",
+    "build:tsc": "upbin tsc",
+    "build:babel": "upbin babel src --extensions '.ts,.tsx' --out-dir dist --root-mode upward",
+    "lint": "upbin eslint . --ext .ts,.tsx"
   },
   "dependencies": {
     "my-common": "^1.0.0"
