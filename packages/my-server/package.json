@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node dist/index.js",
-    "build": "upbin babel src --out-dir dist"
+    "build": "upbin babel --root-mode upward src --out-dir dist"
   },
   "dependencies": {
     "my-common": "^1.0.0"
