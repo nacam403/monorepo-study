@@ -1,8 +1,8 @@
 module.exports = {
-  parser: "typescript-eslint-parser",
+  parser: 'typescript-eslint-parser',
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: "module",
+    sourceType: 'module',
   },
   env: {
     browser: true,
@@ -10,10 +10,10 @@ module.exports = {
     node: true,
   },
   extends: [
-    "eslint:recommended",
-    "plugin:prettier/recommended",
+    'eslint:recommended',
+    'plugin:prettier/recommended',
   ],
   rules: {
-    "no-console": "off",
+    'no-console': 'off',
   },
 };
