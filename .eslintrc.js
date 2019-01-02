@@ -1,8 +1,8 @@
 module.exports = {
-  parser: "babel-eslint",
+  parser: 'typescript-eslint-parser',
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: "module",
+    sourceType: 'module',
   },
   env: {
     browser: true,
@@ -10,10 +10,20 @@ module.exports = {
     node: true,
   },
   extends: [
-    "eslint:recommended",
-    "plugin:prettier/recommended",
+    'eslint:recommended',
+    'standard',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:prettier/recommended',
   ],
-  rules: {
-    "no-console": "off",
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.ts', '.tsx'],
+      },
+    },
   },
-};
+  rules: {
+    'no-console': 'off',
+  },
+}
