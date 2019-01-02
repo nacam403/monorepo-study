@@ -3,6 +3,7 @@
     "strict": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
+    "lib": ["es2018"],
     "declaration": true,
     "emitDeclarationOnly": true,
     "noImplicitAny": true
