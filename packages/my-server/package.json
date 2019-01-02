@@ -17,7 +17,6 @@
     "my-common": "*"
   },
   "devDependencies": {
-    "@types/express": "^4.16.0",
     "upbin": "^0.8.1"
   }
 }
