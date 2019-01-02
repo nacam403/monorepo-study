@@ -14,6 +14,7 @@ module.exports = {
     'standard',
     'plugin:import/errors',
     'plugin:import/warnings',
+    'plugin:react/recommended',
     'plugin:prettier/recommended',
   ],
   settings: {
