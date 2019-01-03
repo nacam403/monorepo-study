@@ -6,6 +6,8 @@
     "lib": ["es2018"],
     "declaration": true,
     "emitDeclarationOnly": true,
+    "jsx": "preserve",
+    "skipLibCheck": true,
     "noImplicitAny": true
   }
 }

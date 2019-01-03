@@ -1,0 +1,20 @@
+{
+  "name": "my-mobile-app",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "NODE_ENV=test upbin nyc npm run mocha",
+    "mocha": "upbin mocha --recursive 'test/**/*.test.ts' --require ../../test/babel-register.js",
+    "lint": "upbin eslint . --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "react": "16.6.3",
+    "react-native": "0.57.8"
+  },
+  "devDependencies": {
+    "metro-react-native-babel-preset": "0.51.1",
+    "upbin": "^0.8.1"
+  }
+}
