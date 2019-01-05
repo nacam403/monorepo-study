@@ -26,5 +26,9 @@ module.exports = {
   },
   rules: {
     'no-console': 'off',
+    // 一部のESLintルールは、TypeScriptで書かれたコードに対して上手く動かないので、offにする必要がある。
+    // https://qiita.com/terrierscript/items/885879d8ed8df40b9098
+    'no-unused-vars': 'off',
+    'no-undef': 'off',
   },
 }
