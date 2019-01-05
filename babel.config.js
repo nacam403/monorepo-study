@@ -9,6 +9,10 @@ module.exports = {
     '@babel/preset-react',
     '@babel/typescript',
   ],
+  plugins: [
+    '@babel/proposal-class-properties',
+    '@babel/proposal-object-rest-spread',
+  ],
   env: {
     test: {
       plugins: ['istanbul'],
