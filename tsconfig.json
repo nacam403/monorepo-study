@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "strict": true,
+    "target": "esnext",
     "esModuleInterop": true,
     "moduleResolution": "node",
     "lib": ["dom", "es2018"],
