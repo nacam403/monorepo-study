@@ -5,6 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "build": "upbin npm-run-all build:*",
+    "build:tsc": "upbin tsc",
     "test": "NODE_ENV=test upbin nyc npm run mocha",
     "mocha": "upbin mocha --recursive 'test/**/*.test.ts' --require ../../test/babel-register.js",
     "lint": "upbin eslint . --ext .ts,.tsx"
