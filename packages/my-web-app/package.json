@@ -1,0 +1,23 @@
+{
+  "name": "my-web-app",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start:dev": "upbin webpack-dev-server --devtool source-map",
+    "clean": "rm -rf dist",
+    "build": "upbin npm-run-all clean build:*",
+    "build:tsc": "upbin tsc",
+    "build:webpack": "upbin webpack",
+    "test": "NODE_ENV=test upbin nyc npm run mocha",
+    "mocha": "upbin mocha --recursive 'test/**/*.test.ts' --require ../../test/babel-register.js",
+    "lint": "upbin eslint . --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "devDependencies": {
+    "upbin": "^0.8.1"
+  }
+}

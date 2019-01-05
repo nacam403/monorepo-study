@@ -3,7 +3,7 @@
     "strict": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "lib": ["es2018"],
+    "lib": ["dom", "es2018"],
     "declaration": true,
     "emitDeclarationOnly": true,
     "jsx": "preserve",
