@@ -1,8 +1,13 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
 import { createStackNavigator, createAppContainer } from 'react-navigation'
 
-const App = () => <AppContainer />
+const App = () => (
+  <View style={{ flex: 1 }}>
+    <AppContainer />
+    <SafeAreaView style={{ backgroundColor: '#F5FCFF' }} />
+  </View>
+)
 
 export default App
 
