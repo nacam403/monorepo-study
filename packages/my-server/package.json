@@ -10,8 +10,7 @@
     "build": "upbin npm-run-all clean build:*",
     "build:tsc": "upbin tsc",
     "build:babel": "upbin babel src --extensions '.ts,.tsx' --out-dir dist --root-mode upward --source-maps",
-    "test": "NODE_ENV=test upbin nyc npm run mocha",
-    "mocha": "upbin mocha --recursive 'test/**/*.test.ts' --require ../../test/babel-register.js",
+    "test": "cd ../../ && upbin jest --projects packages/my-server",
     "lint": "upbin eslint . --ext .ts,.tsx"
   },
   "dependencies": {
