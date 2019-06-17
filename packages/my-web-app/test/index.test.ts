@@ -1,1 +1,3 @@
-// nothing
+describe('dummy', () => {
+  it('dummy', () => {})
+})
