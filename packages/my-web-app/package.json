@@ -10,13 +10,15 @@
     "build:tsc": "upbin tsc",
     "build:webpack": "upbin webpack",
     "test": "cd ../../ && upbin jest --projects packages/my-web-app",
-    "lint": "upbin eslint . --ext .ts,.tsx"
+    "lint": "upbin eslint . --ext .ts,.tsx",
+    "storybook": "start-storybook"
   },
   "dependencies": {
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },
   "devDependencies": {
+    "@storybook/react": "^5.1.9",
     "upbin": "^0.8.1"
   }
 }
