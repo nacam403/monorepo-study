@@ -14,6 +14,7 @@ module.exports = {
   ],
   extends: [
     'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
     'standard',
     'plugin:import/errors',
     'plugin:import/warnings',
