@@ -1,4 +1,4 @@
-import { configure, addDecorator } from '@storybook/react'
+import { configure, addParameters, addDecorator } from '@storybook/react'
 import { withKnobs } from '@storybook/addon-knobs'
 
 function loadStories() {
@@ -7,5 +7,13 @@ function loadStories() {
 }
 
 addDecorator(withKnobs)
+
+addParameters({
+  backgrounds: [
+    { name: 'gray', value: '#888888', default: true },
+    { name: 'white', value: '#ffffff' },
+    { name: 'black', value: '#000000' },
+  ],
+})
 
 configure(loadStories, module)
