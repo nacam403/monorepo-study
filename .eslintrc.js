@@ -1,5 +1,5 @@
 module.exports = {
-  parser: 'typescript-eslint-parser',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
@@ -9,13 +9,18 @@ module.exports = {
     node: true,
     jest: true,
   },
+  plugins: [
+    '@typescript-eslint',
+  ],
   extends: [
     'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
     'standard',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
+    'prettier/@typescript-eslint',
   ],
   settings: {
     'import/resolver': {
