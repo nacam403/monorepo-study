@@ -10,9 +10,8 @@ const log = (message: string, detail?: Object) => {
   console.log(`BLE: ${message} ${detailString}`)
 }
 
-const isExpectedPeripheral = (name: string) => {
-  // ひとまず、常にtrueを返す。
-  return true
+const isExpectedPeripheral = (name?: string) => {
+  return name && name.match(/UC-352/)
 }
 
 export const scan = async (): Promise<Peripheral | undefined> => {
