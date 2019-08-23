@@ -56,3 +56,43 @@ export const scan = async (): Promise<Peripheral | undefined> => {
     log('Scan started.')
   })
 }
+
+export const connect = (peripheral: Peripheral) => {
+  return new Promise(async (resolve, reject) => {
+    log('Connecting...', peripheral)
+
+    const timeoutId = setTimeout(() => {
+      const errorMessage = 'Connect timeout.'
+      log(errorMessage, peripheral)
+      reject(new Error(errorMessage))
+    }, 5000)
+
+    try {
+      await BleManager.connect(peripheral.id)
+      log('Connected.', peripheral)
+      clearTimeout(timeoutId)
+      resolve()
+    } catch (e) {
+      log('Connect failed.', e)
+      clearTimeout(timeoutId)
+      reject(e)
+    }
+  })
+}
+
+export const retrieveServices = (peripheral: Peripheral) => {
+  return new Promise(async (resolve, reject) => {
+    log('Retrieving services...', peripheral)
+
+    const timeoutId = setTimeout(() => {
+      const errorMessage = 'Retrieving services timeout.'
+      log(errorMessage, peripheral)
+      reject(new Error(errorMessage))
+    }, 5000)
+
+    const peripheralInfo = await BleManager.retrieveServices(peripheral.id)
+    log('Services retrieved.', peripheralInfo)
+    clearTimeout(timeoutId)
+    resolve(peripheralInfo)
+  })
+}

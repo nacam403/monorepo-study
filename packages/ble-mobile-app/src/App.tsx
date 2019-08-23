@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { StyleSheet, SafeAreaView, View, Text, Button } from 'react-native'
 
-import { scan } from './BleManagerWrapper'
+import { scan, connect, retrieveServices } from './BleManagerWrapper'
 
 const blankPeripheral = {
   id: '-',
@@ -19,8 +19,13 @@ const App = () => {
         onPress={async () => {
           const discoveredPeripheral = await scan()
           setDiscoveredPeripheral(discoveredPeripheral || blankPeripheral)
+
+          if (discoveredPeripheral) {
+            await connect(discoveredPeripheral)
+            await retrieveServices(discoveredPeripheral)
+          }
         }}
-        title="scan"
+        title="scan, connect, retrieve"
       />
 
       <View>
