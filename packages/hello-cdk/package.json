@@ -1,0 +1,21 @@
+{
+  "name": "hello-cdk",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "upbin npm-run-all build:*",
+    "build:typecheck": "upbin tsc",
+    "lint": "upbin eslint . --ext .ts",
+    "ls": "cdk ls",
+    "synth": "cdk synth"
+  },
+  "devDependencies": {
+    "aws-cdk": "^1.5.0",
+    "upbin": "^0.8.1"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-s3": "^1.5.0",
+    "@aws-cdk/core": "^1.5.0"
+  }
+}
