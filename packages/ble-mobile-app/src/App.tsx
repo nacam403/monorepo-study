@@ -1,7 +1,20 @@
 import React, { useState } from 'react'
 import { StyleSheet, SafeAreaView, View, Text, Button } from 'react-native'
 
-import { scan, connect, retrieveServices } from './BleManagerWrapper'
+import {
+  scan,
+  connect,
+  retrieveServices,
+  createBondWithRetry,
+  write,
+  read,
+  disconnect,
+} from './BleManagerWrapper'
+import {
+  WEIGHT_SCALE_SERVICE_UUID,
+  DATE_TIME_CHARACTERISTIC_UUID,
+  createDataTimeCharacteristicValue,
+} from './WeightScaleUtil'
 
 const blankPeripheral = {
   id: '-',
@@ -23,9 +36,28 @@ const App = () => {
           if (discoveredPeripheral) {
             await connect(discoveredPeripheral)
             await retrieveServices(discoveredPeripheral)
+
+            // TODO if Android
+            await createBondWithRetry(discoveredPeripheral)
+
+            const currentDateTime = createDataTimeCharacteristicValue()
+            await write({
+              peripheral: discoveredPeripheral,
+              serviceUUID: WEIGHT_SCALE_SERVICE_UUID,
+              characteristicUUID: DATE_TIME_CHARACTERISTIC_UUID,
+              data: currentDateTime,
+            })
+
+            const dateTimeArray = await read({
+              peripheral: discoveredPeripheral,
+              serviceUUID: WEIGHT_SCALE_SERVICE_UUID,
+              characteristicUUID: DATE_TIME_CHARACTERISTIC_UUID,
+            })
+            console.log(dateTimeArray)
+            await disconnect(discoveredPeripheral)
           }
         }}
-        title="scan, connect, retrieve"
+        title="Paring"
       />
 
       <View>

@@ -14,6 +14,14 @@ const isExpectedPeripheral = (name?: string) => {
   return name && name.match(/UC-352/)
 }
 
+const wait = (msec: number = 50) => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve()
+    }, msec)
+  })
+}
+
 export const scan = async (): Promise<Peripheral | undefined> => {
   return new Promise(async resolve => {
     const discoverSubscription = emitter.addListener(
@@ -95,4 +103,101 @@ export const retrieveServices = (peripheral: Peripheral) => {
     clearTimeout(timeoutId)
     resolve(peripheralInfo)
   })
+}
+
+/**
+ * Androidの場合、以下のような挙動になる。
+ * 1. BleManager.createBondを呼ぶ。
+ * 2. OSによるポップアップが端末の画面に表示される。
+ * 3. ポップアップ表示と同時に、BleManager.createBondのPromiseはrejectされる。ポップアップの操作完了を待ってはくれない。
+ */
+const createBond = async (peripheral: Peripheral) => {
+  try {
+    log('Bonding starting...', { peripheral })
+    await BleManager.createBond(peripheral.id)
+    log('Bonding succeeded.', { peripheral })
+  } catch (e) {
+    log('Bonding failed.', e)
+    throw e
+  }
+}
+
+/**
+ * ユーザーがポップアップを操作してボンディングが完了するまで、createBondを繰り返す。
+ * ボンディング完了後ならば、createBondのPromiseはresolveされることを利用している。
+ */
+export const createBondWithRetry = async (peripheral: Peripheral) => {
+  let retry = 0
+
+  while (true) {
+    try {
+      await createBond(peripheral)
+      return // ボンディング完了
+    } catch (e) {
+      // ボンディング未了の場合、createBondを呼ぶとすぐにrejectされるので、ここに来る。
+      if (retry >= 20) {
+        throw e
+      }
+    }
+
+    // 少しwaitしながらリトライする。そのうちにユーザーがポップアップを操作して、ボンディングが完了するはずだから。
+    await wait(1000)
+    retry++
+  }
+}
+
+export const write = async ({
+  peripheral,
+  serviceUUID,
+  characteristicUUID,
+  data,
+}: {
+  peripheral: Peripheral
+  serviceUUID: string
+  characteristicUUID: string
+  data: number[]
+}) => {
+  try {
+    log('Write starting...', { serviceUUID, characteristicUUID })
+    await BleManager.write(peripheral.id, serviceUUID, characteristicUUID, data)
+    log('Write succeeded.', { serviceUUID, characteristicUUID })
+  } catch (e) {
+    log('Write failed.', e)
+    throw e
+  }
+}
+
+export const read = async ({
+  peripheral,
+  serviceUUID,
+  characteristicUUID,
+}: {
+  peripheral: Peripheral
+  serviceUUID: string
+  characteristicUUID: string
+}) => {
+  try {
+    log('Read starting...', { serviceUUID, characteristicUUID })
+    const data = await BleManager.read(
+      peripheral.id,
+      serviceUUID,
+      characteristicUUID,
+    )
+    log('Read succeeded.', { serviceUUID, characteristicUUID })
+    return data
+  } catch (e) {
+    log('Read failed.', e)
+    throw e
+  }
+}
+
+export const disconnect = async (peripheral: Peripheral) => {
+  try {
+    log('Disconnecting...', peripheral)
+    await BleManager.disconnect(peripheral.id)
+    log('Disconnected.', peripheral)
+  } catch (e) {
+    log('Disconnect failed.', e)
+    throw e
+  }
 }
