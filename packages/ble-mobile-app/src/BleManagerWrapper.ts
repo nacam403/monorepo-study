@@ -65,7 +65,7 @@ export const connect = (peripheral: Peripheral) => {
       const errorMessage = 'Connect timeout.'
       log(errorMessage, peripheral)
       reject(new Error(errorMessage))
-    }, 5000)
+    }, 10000)
 
     try {
       await BleManager.connect(peripheral.id)
@@ -88,7 +88,7 @@ export const retrieveServices = (peripheral: Peripheral) => {
       const errorMessage = 'Retrieving services timeout.'
       log(errorMessage, peripheral)
       reject(new Error(errorMessage))
-    }, 5000)
+    }, 10000)
 
     const peripheralInfo = await BleManager.retrieveServices(peripheral.id)
     log('Services retrieved.', peripheralInfo)
