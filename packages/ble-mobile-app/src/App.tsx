@@ -1,5 +1,12 @@
 import React, { useState } from 'react'
-import { StyleSheet, SafeAreaView, View, Text, Button } from 'react-native'
+import {
+  Platform,
+  StyleSheet,
+  SafeAreaView,
+  View,
+  Text,
+  Button,
+} from 'react-native'
 
 import {
   scan,
@@ -37,8 +44,9 @@ const App = () => {
             await connect(discoveredPeripheral)
             await retrieveServices(discoveredPeripheral)
 
-            // TODO if Android
-            await createBondWithRetry(discoveredPeripheral)
+            if (Platform.OS === 'android') {
+              await createBondWithRetry(discoveredPeripheral)
+            }
 
             const currentDateTime = createDataTimeCharacteristicValue()
             await write({
