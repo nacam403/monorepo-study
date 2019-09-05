@@ -4,7 +4,7 @@ export type Peripheral = {
 }
 
 export type WriteParams = ReadParams & {
-  data: number[]
+  bytes: number[]
 }
 
 export type ReadParams = {

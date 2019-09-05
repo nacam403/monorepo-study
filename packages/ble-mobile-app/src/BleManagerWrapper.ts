@@ -155,11 +155,16 @@ export const write = async ({
   peripheral,
   serviceUUID,
   characteristicUUID,
-  data,
+  bytes,
 }: WriteParams) => {
   try {
     log('Write starting...')
-    await BleManager.write(peripheral.id, serviceUUID, characteristicUUID, data)
+    await BleManager.write(
+      peripheral.id,
+      serviceUUID,
+      characteristicUUID,
+      bytes,
+    )
     log('Write succeeded.')
   } catch (e) {
     log('Write failed.', e)
@@ -174,13 +179,13 @@ export const read = async ({
 }: ReadParams) => {
   try {
     log('Read starting...')
-    const data = await BleManager.read(
+    const bytes = await BleManager.read(
       peripheral.id,
       serviceUUID,
       characteristicUUID,
     )
     log('Read succeeded.')
-    return data
+    return bytes
   } catch (e) {
     log('Read failed.', e)
     throw e

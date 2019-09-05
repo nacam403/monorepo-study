@@ -45,7 +45,7 @@ const App = () => {
               peripheral: discoveredPeripheral,
               serviceUUID: WEIGHT_SCALE_SERVICE_UUID,
               characteristicUUID: DATE_TIME_CHARACTERISTIC_UUID,
-              data: currentDateTime,
+              bytes: currentDateTime,
             })
 
             const dateTimeArray = await read({
