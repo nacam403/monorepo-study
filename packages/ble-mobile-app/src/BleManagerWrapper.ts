@@ -1,7 +1,12 @@
 import { NativeModules, NativeEventEmitter } from 'react-native'
 import BleManager from 'react-native-ble-manager'
 
-import { Peripheral } from './Types'
+import {
+  Peripheral,
+  WriteParams,
+  ReadParams,
+  NotificationParams,
+} from './Types'
 
 const emitter = new NativeEventEmitter(NativeModules.BleManager)
 
@@ -151,12 +156,7 @@ export const write = async ({
   serviceUUID,
   characteristicUUID,
   data,
-}: {
-  peripheral: Peripheral
-  serviceUUID: string
-  characteristicUUID: string
-  data: number[]
-}) => {
+}: WriteParams) => {
   try {
     log('Write starting...', { serviceUUID, characteristicUUID })
     await BleManager.write(peripheral.id, serviceUUID, characteristicUUID, data)
@@ -171,11 +171,7 @@ export const read = async ({
   peripheral,
   serviceUUID,
   characteristicUUID,
-}: {
-  peripheral: Peripheral
-  serviceUUID: string
-  characteristicUUID: string
-}) => {
+}: ReadParams) => {
   try {
     log('Read starting...', { serviceUUID, characteristicUUID })
     const data = await BleManager.read(
@@ -195,11 +191,7 @@ const startNotification = async ({
   peripheral,
   serviceUUID,
   characteristicUUID,
-}: {
-  peripheral: Peripheral
-  serviceUUID: string
-  characteristicUUID: string
-}) => {
+}: NotificationParams) => {
   try {
     log('Notification/Indication starting...', {
       serviceUUID,
@@ -221,11 +213,7 @@ const stopNotification = async ({
   peripheral,
   serviceUUID,
   characteristicUUID,
-}: {
-  peripheral: Peripheral
-  serviceUUID: string
-  characteristicUUID: string
-}) => {
+}: NotificationParams) => {
   try {
     log('Notification/Indication stoping...', {
       serviceUUID,
@@ -243,11 +231,9 @@ const stopNotification = async ({
   }
 }
 
-export const startAndStopNotification = async (notifiationParams: {
-  peripheral: Peripheral
-  serviceUUID: string
-  characteristicUUID: string
-}): Promise<Array<number[]>> => {
+export const startAndStopNotification = async (
+  notifiationParams: NotificationParams,
+): Promise<Array<number[]>> => {
   return new Promise(async resolve => {
     const receivedValues: number[][] = []
 
