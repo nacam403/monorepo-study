@@ -191,6 +191,87 @@ export const read = async ({
   }
 }
 
+const startNotification = async ({
+  peripheral,
+  serviceUUID,
+  characteristicUUID,
+}: {
+  peripheral: Peripheral
+  serviceUUID: string
+  characteristicUUID: string
+}) => {
+  try {
+    log('Notification/Indication starting...', {
+      serviceUUID,
+      characteristicUUID,
+    })
+    await BleManager.startNotification(
+      peripheral.id,
+      serviceUUID,
+      characteristicUUID,
+    )
+    log('Notification/Indication started.', { serviceUUID, characteristicUUID })
+  } catch (e) {
+    log('Notification/Indication start failed.', e)
+    throw e
+  }
+}
+
+const stopNotification = async ({
+  peripheral,
+  serviceUUID,
+  characteristicUUID,
+}: {
+  peripheral: Peripheral
+  serviceUUID: string
+  characteristicUUID: string
+}) => {
+  try {
+    log('Notification/Indication stoping...', {
+      serviceUUID,
+      characteristicUUID,
+    })
+    await BleManager.stopNotification(
+      peripheral.id,
+      serviceUUID,
+      characteristicUUID,
+    )
+    log('Notification/Indication stopped.', { serviceUUID, characteristicUUID })
+  } catch (e) {
+    log('Notification stop failed.', e)
+    throw e
+  }
+}
+
+export const startAndStopNotification = async (notifiationParams: {
+  peripheral: Peripheral
+  serviceUUID: string
+  characteristicUUID: string
+}): Promise<Array<number[]>> => {
+  return new Promise(async resolve => {
+    const receivedValues: number[][] = []
+
+    const notificationSubscription = emitter.addListener(
+      'BleManagerDidUpdateValueForCharacteristic',
+      ({ value }: { value: number[] }) => {
+        log('Notification/Indication received.', { value })
+        receivedValues.push(value)
+      },
+    )
+
+    try {
+      await startNotification(notifiationParams)
+      await wait(10000)
+      await stopNotification(notifiationParams)
+    } catch (e) {
+      // エラーは握りつぶし、必ずresolveする。receivedValuesが空配列であっても。
+    } finally {
+      notificationSubscription.remove()
+      resolve(receivedValues)
+    }
+  })
+}
+
 export const disconnect = async (peripheral: Peripheral) => {
   try {
     log('Disconnecting...', peripheral)
