@@ -72,17 +72,17 @@ export const scan = async (): Promise<Peripheral | undefined> => {
 
 export const connect = (peripheral: Peripheral) => {
   return new Promise(async (resolve, reject) => {
-    log('Connecting...', peripheral)
+    log('Connecting...')
 
     const timeoutId = setTimeout(() => {
       const errorMessage = 'Connect timeout.'
-      log(errorMessage, peripheral)
+      log(errorMessage)
       reject(new Error(errorMessage))
     }, 10000)
 
     try {
       await BleManager.connect(peripheral.id)
-      log('Connected.', peripheral)
+      log('Connected.')
       clearTimeout(timeoutId)
       resolve()
     } catch (e) {
@@ -95,11 +95,11 @@ export const connect = (peripheral: Peripheral) => {
 
 export const retrieveServices = (peripheral: Peripheral) => {
   return new Promise(async (resolve, reject) => {
-    log('Retrieving services...', peripheral)
+    log('Retrieving services...')
 
     const timeoutId = setTimeout(() => {
       const errorMessage = 'Retrieving services timeout.'
-      log(errorMessage, peripheral)
+      log(errorMessage)
       reject(new Error(errorMessage))
     }, 10000)
 
@@ -118,9 +118,9 @@ export const retrieveServices = (peripheral: Peripheral) => {
  */
 const createBond = async (peripheral: Peripheral) => {
   try {
-    log('Bonding starting...', { peripheral })
+    log('Bonding starting...')
     await BleManager.createBond(peripheral.id)
-    log('Bonding succeeded.', { peripheral })
+    log('Bonding succeeded.')
   } catch (e) {
     log('Bonding failed.', e)
     throw e
@@ -158,9 +158,9 @@ export const write = async ({
   data,
 }: WriteParams) => {
   try {
-    log('Write starting...', { serviceUUID, characteristicUUID })
+    log('Write starting...')
     await BleManager.write(peripheral.id, serviceUUID, characteristicUUID, data)
-    log('Write succeeded.', { serviceUUID, characteristicUUID })
+    log('Write succeeded.')
   } catch (e) {
     log('Write failed.', e)
     throw e
@@ -173,13 +173,13 @@ export const read = async ({
   characteristicUUID,
 }: ReadParams) => {
   try {
-    log('Read starting...', { serviceUUID, characteristicUUID })
+    log('Read starting...')
     const data = await BleManager.read(
       peripheral.id,
       serviceUUID,
       characteristicUUID,
     )
-    log('Read succeeded.', { serviceUUID, characteristicUUID })
+    log('Read succeeded.')
     return data
   } catch (e) {
     log('Read failed.', e)
@@ -193,16 +193,13 @@ const startNotification = async ({
   characteristicUUID,
 }: NotificationParams) => {
   try {
-    log('Notification/Indication starting...', {
-      serviceUUID,
-      characteristicUUID,
-    })
+    log('Notification/Indication starting...')
     await BleManager.startNotification(
       peripheral.id,
       serviceUUID,
       characteristicUUID,
     )
-    log('Notification/Indication started.', { serviceUUID, characteristicUUID })
+    log('Notification/Indication started.')
   } catch (e) {
     log('Notification/Indication start failed.', e)
     throw e
@@ -215,16 +212,13 @@ const stopNotification = async ({
   characteristicUUID,
 }: NotificationParams) => {
   try {
-    log('Notification/Indication stoping...', {
-      serviceUUID,
-      characteristicUUID,
-    })
+    log('Notification/Indication stoping...')
     await BleManager.stopNotification(
       peripheral.id,
       serviceUUID,
       characteristicUUID,
     )
-    log('Notification/Indication stopped.', { serviceUUID, characteristicUUID })
+    log('Notification/Indication stopped.')
   } catch (e) {
     log('Notification stop failed.', e)
     throw e
@@ -260,9 +254,9 @@ export const startAndStopNotification = async (
 
 export const disconnect = async (peripheral: Peripheral) => {
   try {
-    log('Disconnecting...', peripheral)
+    log('Disconnecting...')
     await BleManager.disconnect(peripheral.id)
-    log('Disconnected.', peripheral)
+    log('Disconnected.')
   } catch (e) {
     log('Disconnect failed.', e)
     throw e
