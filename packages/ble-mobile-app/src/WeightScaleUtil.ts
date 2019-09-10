@@ -1,6 +1,7 @@
 export const WEIGHT_SCALE_SERVICE_UUID = '181D'
 
 export const DATE_TIME_CHARACTERISTIC_UUID = '2A08'
+export const WEIGHT_MEASUREMENT_CHARACTERISTIC_UUID = '2A9D'
 
 export const createDataTimeCharacteristicValue = (date: Date = new Date()) => {
   const year = date.getFullYear()

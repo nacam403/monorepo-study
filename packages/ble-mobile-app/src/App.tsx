@@ -15,11 +15,13 @@ import {
   createBondWithRetry,
   write,
   read,
+  startAndStopNotification,
   disconnect,
 } from './BleManagerWrapper'
 import {
   WEIGHT_SCALE_SERVICE_UUID,
   DATE_TIME_CHARACTERISTIC_UUID,
+  WEIGHT_MEASUREMENT_CHARACTERISTIC_UUID,
   createDataTimeCharacteristicValue,
 } from './WeightScaleUtil'
 
@@ -66,6 +68,35 @@ const App = () => {
           }
         }}
         title="Paring"
+      />
+
+      <Button
+        onPress={async () => {
+          const discoveredPeripheral = await scan()
+          setDiscoveredPeripheral(discoveredPeripheral || blankPeripheral)
+
+          if (discoveredPeripheral) {
+            await connect(discoveredPeripheral)
+            await retrieveServices(discoveredPeripheral)
+
+            const dateTimeArray = await read({
+              peripheral: discoveredPeripheral,
+              serviceUUID: WEIGHT_SCALE_SERVICE_UUID,
+              characteristicUUID: DATE_TIME_CHARACTERISTIC_UUID,
+            })
+            console.log(dateTimeArray)
+
+            const values = await startAndStopNotification({
+              peripheral: discoveredPeripheral,
+              serviceUUID: WEIGHT_SCALE_SERVICE_UUID,
+              characteristicUUID: WEIGHT_MEASUREMENT_CHARACTERISTIC_UUID,
+            })
+            console.log(values)
+
+            await disconnect(discoveredPeripheral)
+          }
+        }}
+        title="Receive Notification/Indication"
       />
 
       <View>
