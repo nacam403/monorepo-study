@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {
+  PermissionsAndroid,
   Platform,
   StyleSheet,
   SafeAreaView,
@@ -37,6 +38,15 @@ const App = () => {
 
   return (
     <SafeAreaView style={style.safeAreaView}>
+      <Button
+        onPress={async () => {
+          const result = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+          )
+        }}
+        title="Request Permission"
+      />
+
       <Button
         onPress={async () => {
           const discoveredPeripheral = await scan()
