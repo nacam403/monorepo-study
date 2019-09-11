@@ -1,0 +1,3 @@
+{
+  "app": "upbin ts-node src/hello-cdk.ts"
+}
