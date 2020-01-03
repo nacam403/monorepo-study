@@ -1,0 +1,21 @@
+{
+  "name": "graphql-study",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "upbin npm-run-all clean build:*",
+    "build:graphql": "graphql-codegen"
+  },
+  "dependencies": {
+    "graphql": "^14.5.8"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.10.0",
+    "@graphql-codegen/typescript": "1.10.0",
+    "@graphql-codegen/typescript-resolvers": "1.10.0",
+    "upbin": "^0.8.1"
+  }
+}
