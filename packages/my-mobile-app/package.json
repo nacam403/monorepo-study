@@ -11,7 +11,7 @@
     "lint": "upbin eslint . --ext .ts,.tsx"
   },
   "dependencies": {
-    "react": "16.6.3",
+    "react": "16.13.1",
     "react-native": "0.57.8",
     "react-native-gesture-handler": "^1.0.15",
     "react-navigation": "^3.2.3"
