@@ -26,7 +26,7 @@
     "@aws-cdk/aws-iam" "^1.5.0"
     "@aws-cdk/core" "^1.5.0"
 
-"@aws-cdk/aws-s3@^1.5.0":
+"@aws-cdk/aws-s3@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-s3/-/aws-s3-1.5.0.tgz#a9827c658a6773869f2ab6b26010f03f297cbed6"
   integrity sha512-7khqeJ0KcOffDImfyMfdq2DZjs/efxCi+pssgGST+NESwgGRF78dJXZ+85dVmOpGQSQZxk9RSVZSgRvHBNQByg==
@@ -57,7 +57,7 @@
     string-width "^4.1.0"
     table "^5.4.5"
 
-"@aws-cdk/core@^1.5.0":
+"@aws-cdk/core@1.5.0", "@aws-cdk/core@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/core/-/core-1.5.0.tgz#95777c1350d32a04788fa7e021b767f9b3ba6da0"
   integrity sha512-FRUMbYkd9grFm7sQq52vVpCPwgdKwIikwH8i01hiLTJHbpWDuBtomzbx683rUgcQELMoszLkOVRzTaoWLfzamw==
@@ -195,7 +195,7 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
 
-aws-cdk@^1.5.0:
+aws-cdk@1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-1.5.0.tgz#c08283c83bdb27024442acbfc6017c7694669f5d"
   integrity sha512-/tBgPQUGZtEeJt6qVm/JM24YPlDlwuJz3eiMu65L1wLNgDJpJKFqgZgaeMqkhG6HiCPkY/kgSP2LRjLlYyvqbg==
@@ -1457,7 +1457,7 @@ unpipe@1.0.0:
   resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
   integrity sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=
 
-upbin@^0.8.1:
+upbin@0.8.2:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/upbin/-/upbin-0.8.2.tgz#639a131cff5ec6c30c137ac6ba028bb41d6e7b53"
   integrity sha512-JrZDSPn6a+Mp8aUbJ6LoY/fJimkjbYqVwAH/zn0dfO4WEJumvV9vMWwYNoE68gCdHYpLI9ZLFtzO+ZrVwn1CKg==

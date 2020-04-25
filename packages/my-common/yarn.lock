@@ -35,8 +35,9 @@ path-exists@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/path-exists/-/path-exists-3.0.0.tgz#ce0ebeaa5f78cb18925ea7d810d7b59b010fd515"
 
-upbin@^0.8.1:
+upbin@0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/upbin/-/upbin-0.8.1.tgz#738d9cfc0d46f14562b2d892a91e0c9a10c7757e"
+  integrity sha512-ivjD+A/Yj4UZbXwBEP4No/fjVml2ZqVG1enIx5KtqLpuRR8V9j73sP56pDzTMykax4vWkwXCWRkgKlQIYbQdJA==
   dependencies:
     find-up "^3.0.0"

@@ -491,7 +491,7 @@
     ts-node "^8"
     tslib "^1"
 
-"@graphql-codegen/cli@^1.10.0":
+"@graphql-codegen/cli@1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/cli/-/cli-1.10.0.tgz#83b86dd7ac99c07322db12d207c6626f45f62ba3"
   integrity sha512-c4n1tO0os1MCKtktcFCfI64hfsDXIZw4bEl3fq39GK9VnkZrrX+G9HIl8a4tLHfYCdcz6AHY5T+81wa9nGN2EQ==
@@ -2224,7 +2224,7 @@ graphql-tools@4.0.6:
     iterall "^1.1.3"
     uuid "^3.1.0"
 
-"graphql@14.0.2 - 14.2.0 || ^14.3.1", graphql@^14.5.8:
+"graphql@14.0.2 - 14.2.0 || ^14.3.1", graphql@14.5.8:
   version "14.5.8"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.5.8.tgz#504f3d3114cb9a0a3f359bbbcf38d9e5bf6a6b3c"
   integrity sha512-MMwmi0zlVLQKLdGiMfWkgQD7dY/TUKt4L+zgJ/aR0Howebod3aNgP5JkgvAULiR2HPVZaP2VEElqtdidHweLkg==
@@ -4044,7 +4044,7 @@ unset-value@^1.0.0:
     has-value "^0.3.1"
     isobject "^3.0.0"
 
-upbin@^0.8.1:
+upbin@0.8.2:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/upbin/-/upbin-0.8.2.tgz#639a131cff5ec6c30c137ac6ba028bb41d6e7b53"
   integrity sha512-JrZDSPn6a+Mp8aUbJ6LoY/fJimkjbYqVwAH/zn0dfO4WEJumvV9vMWwYNoE68gCdHYpLI9ZLFtzO+ZrVwn1CKg==

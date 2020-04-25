@@ -78,9 +78,10 @@ etag@~1.8.1:
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
 
-express@^4.16.4:
+express@4.16.4:
   version "4.16.4"
   resolved "https://registry.yarnpkg.com/express/-/express-4.16.4.tgz#fddef61926109e24c515ea97fd2f1bdbf62df12e"
+  integrity sha512-j12Uuyb4FMrd/qQAm6uCHAkPtO8FDTRJZBDd5D2KOL2eLaz1yUNdUB/NOIyq0iU4q4cFarsUCrnFDPBcnksuOg==
   dependencies:
     accepts "~1.3.5"
     array-flatten "1.1.1"
@@ -319,9 +320,10 @@ unpipe@1.0.0, unpipe@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
 
-upbin@^0.8.1:
+upbin@0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/upbin/-/upbin-0.8.1.tgz#738d9cfc0d46f14562b2d892a91e0c9a10c7757e"
+  integrity sha512-ivjD+A/Yj4UZbXwBEP4No/fjVml2ZqVG1enIx5KtqLpuRR8V9j73sP56pDzTMykax4vWkwXCWRkgKlQIYbQdJA==
   dependencies:
     find-up "^3.0.0"
 

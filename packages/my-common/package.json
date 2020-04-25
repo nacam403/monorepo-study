@@ -13,6 +13,6 @@
     "lint": "upbin eslint . --ext .ts,.tsx"
   },
   "devDependencies": {
-    "upbin": "^0.8.1"
+    "upbin": "0.8.1"
   }
 }

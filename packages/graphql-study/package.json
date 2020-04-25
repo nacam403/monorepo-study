@@ -10,12 +10,12 @@
     "build:graphql": "graphql-codegen"
   },
   "dependencies": {
-    "graphql": "^14.5.8"
+    "graphql": "14.5.8"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^1.10.0",
+    "@graphql-codegen/cli": "1.10.0",
     "@graphql-codegen/typescript": "1.10.0",
     "@graphql-codegen/typescript-resolvers": "1.10.0",
-    "upbin": "^0.8.1"
+    "upbin": "0.8.2"
   }
 }

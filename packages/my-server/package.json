@@ -14,10 +14,10 @@
     "lint": "upbin eslint . --ext .ts,.tsx"
   },
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "4.16.4",
     "my-common": "*"
   },
   "devDependencies": {
-    "upbin": "^0.8.1"
+    "upbin": "0.8.1"
   }
 }
