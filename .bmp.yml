@@ -1,0 +1,8 @@
+---
+version: 1.0.0
+files:
+  lerna.json: '"version": "%.%.%"'
+  package.json: '"version": "%.%.%"'
+  packages/my-mobile-app/package.json: '"version": "%.%.%"'
+  packages/my-mobile-app/android/app/build.gradle: versionName "%.%.%"
+  packages/my-mobile-app/ios/MyMobileApp/Info.plist: "<string>%.%.%</string>"
