@@ -9,7 +9,8 @@
     "clean": "lerna clean --yes",
     "build": "lerna run build",
     "test": "lerna run test",
-    "lint": "lerna run lint"
+    "lint": "lerna run lint",
+    "postversion": "lerna version patch --no-git-tag-version --yes"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
