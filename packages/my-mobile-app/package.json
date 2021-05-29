@@ -9,7 +9,7 @@
     "build:tsc": "upbin tsc",
     "test": "cd ../../ && upbin jest --projects packages/my-mobile-app",
     "lint": "upbin eslint . --ext .ts,.tsx",
-    "postversion": "react-native-version --never-amend"
+    "version": "react-native-version --never-amend"
   },
   "dependencies": {
     "react": "16.13.1",
